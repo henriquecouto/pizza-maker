@@ -28,6 +28,13 @@
     "import/prefer-default-export": "off",
     "jsx-quotes": ["error", "prefer-single"],
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["*/*/*"]
+      }
+    ],
+    "arrow-body-style": ["error", "as-needed"]
   }
 }
