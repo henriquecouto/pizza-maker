@@ -1,3 +1,3 @@
-import * as theme from "./tokens";
+import * as theme from './tokens';
 
 export default theme;
