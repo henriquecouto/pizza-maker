@@ -1,12 +1,21 @@
 import { Typography, Button, Icon } from 'components/kit';
+import { Pizza } from 'entities/Pizza';
+import { FC } from 'react';
 import { useTheme } from 'styled-components';
-import { usePizzaRecomendation } from 'useCases';
 import { numberToMoney } from 'utils';
 import * as S from './PizzaRecomendation.styles';
 
-export const PizzaRecomendation = () => {
+type PizzaRecomendationProps = {
+  children?: null;
+  pizza: Pizza;
+  onChoose: (pizza: Pizza) => void;
+};
+
+export const PizzaRecomendation: FC<PizzaRecomendationProps> = ({
+  onChoose,
+  pizza,
+}) => {
   const theme = useTheme();
-  const pizza = usePizzaRecomendation();
 
   return (
     <S.Container>
@@ -50,7 +59,9 @@ export const PizzaRecomendation = () => {
             <Typography.Body color='info' weight='bold' size={32}>
               {numberToMoney(pizza.price)}
             </Typography.Body>
-            <Button icon='IcCheck'>quero!</Button>
+            <Button icon='IcCheck' onClick={() => onChoose(pizza)}>
+              quero!
+            </Button>
           </S.Action>
         </S.PizzaDesc>
       </S.PizzaInfo>

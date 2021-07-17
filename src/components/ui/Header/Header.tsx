@@ -1,13 +1,20 @@
 import { IcScore, IcPizza } from 'assets/icons';
 import { Typography } from 'components/kit';
+import { FC } from 'react';
+import { useScore } from 'stores/score';
 import { useTheme } from 'styled-components';
 import * as S from './Header.styles';
 
 const PIZZA_ICON_SIZE = 120;
 const SCORE_ICON_SIZE = 50;
 
-export const Header = () => {
+type HeaderProps = {
+  children?: null;
+};
+
+export const Header: FC<HeaderProps> = () => {
   const theme = useTheme();
+  const { score } = useScore();
   return (
     <S.Container>
       <S.LogoContainer>
@@ -32,7 +39,7 @@ export const Header = () => {
             StoomPoints
           </Typography.Body>
           <Typography.Body color='accent' weight='bold'>
-            <Typography.Body color='white'>0</Typography.Body> pontos.
+            <Typography.Body color='white'>{score}</Typography.Body> pontos.
           </Typography.Body>
         </S.ScoreDesc>
       </S.ScoreContainer>
