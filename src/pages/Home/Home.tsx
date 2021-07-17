@@ -1,4 +1,5 @@
-import { Header, PizzaRecomendation } from 'components/ui';
+import { Outlet } from 'react-router-dom';
+import { Header, PizzaMaker, PizzaRecomendation } from 'components/ui';
 import { useScore } from 'stores/score';
 import { usePizzaRecomendation } from 'useCases';
 import * as S from './Home.styles';
@@ -14,6 +15,9 @@ export const Home = () => {
         pizza={pizza}
         onChoose={(pizza) => add(pizza.score)}
       />
+      <PizzaMaker>
+        <Outlet />
+      </PizzaMaker>
     </S.Container>
   );
 };

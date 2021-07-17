@@ -6,6 +6,7 @@ export const palette = {
     primary: '#3B3A51',
     secondary: '#6A6C84',
     white: '#FFFFFF',
+    subtitle: '#0073BC',
     accent: '#F6A431',
     info: '#00A84E',
   },
