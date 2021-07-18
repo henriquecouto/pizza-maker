@@ -21,6 +21,7 @@ export const Grid = styled.div`
 
 export const DoughContainer = styled.div`
   ${({ theme }) => css`
+    position: relative;
     background-color: ${theme.palette.background.secondary};
     border-radius: ${theme.shapes.radius.md};
     overflow: hidden;
@@ -40,5 +41,13 @@ export const DoughDetails = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: ${theme.spacing.md};
+  `}
+`;
+
+export const RadioWrapper = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    top: ${theme.spacing.md};
+    right: ${theme.spacing.md};
   `}
 `;

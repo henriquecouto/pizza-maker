@@ -41,12 +41,14 @@ export const DoughSelector = () => {
           {doughs?.map((dough) => (
             <S.DoughContainer key={dough.name}>
               <S.DoughPhoto src={dough.photo} />
-              <Radio
-                {...register('dough', { value: defaultValues.dough })}
-                id={dough.name}
-                name='dough'
-                value={dough.name}
-              />
+              <S.RadioWrapper>
+                <Radio
+                  {...register('dough', { value: defaultValues.dough })}
+                  id={dough.name}
+                  name='dough'
+                  value={dough.name}
+                />
+              </S.RadioWrapper>
               <S.DoughDetails>
                 <Typography.H3>{dough.name}</Typography.H3>
                 <Typography.Body size={16}>{dough.description}</Typography.Body>
