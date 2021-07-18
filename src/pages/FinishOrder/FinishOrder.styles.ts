@@ -10,3 +10,17 @@ export const Container = styled.div`
     position: relative;
   `}
 `;
+
+export const PriceContainer = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    right: ${theme.spacing.lg};
+    top: ${theme.spacing.lg};
+  `}
+`;
+
+export const PizzaDetails = styled.div`
+  ${({ theme }) => css`
+    margin: ${theme.spacing.lg} 0;
+  `}
+`;

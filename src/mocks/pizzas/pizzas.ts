@@ -11,7 +11,7 @@ export default [
     ingredients: [
       'mussarela',
       'peito de perú',
-      'palmito',
+      'presunto',
       'parmesão',
       'orégano',
     ],
@@ -39,6 +39,7 @@ export default [
       'azeitona',
       'orégano',
       'tomate',
+      'parmesão',
     ],
     size: 'M',
     price: 40,

@@ -1,6 +1,6 @@
 import { Typography, Button, Radio, Icon } from 'components/kit';
 import { useTheme } from 'styled-components';
-import { usePizzaSizes } from 'useCases/pizza-sizes';
+import { usePizzaSizes } from 'useCases';
 import { numberToMoney } from 'utils';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,7 @@ export const SizeSelector = () => {
   const navigate = useNavigate();
   const { sizes } = usePizzaSizes();
   const { change, state } = usePizzaMaker();
-  const defaultValues = { ...DEFAULT_VALUES, size: state.size };
+  const defaultValues = { ...DEFAULT_VALUES, size: state.size?.name };
   const {
     register,
     handleSubmit,
@@ -35,7 +35,7 @@ export const SizeSelector = () => {
   });
 
   const onSubmit = (data: SizeSelectorModel) => {
-    change(data);
+    change({ size: sizes?.find((size) => size.name === data.size) });
     navigate(routes.finish);
   };
 

@@ -6,6 +6,7 @@ import { usePizzaMaker } from 'hooks';
 import { useNavigate } from 'react-router-dom';
 import routes from 'constants/routes';
 import * as S from './IngredientsSelector.styles';
+import { Ingredient } from 'entities/Ingredient';
 
 type IngredientsSelectorModel = {
   [x: string]: boolean;
@@ -17,7 +18,7 @@ export const IngredientsSelector = () => {
   const { change, state } = usePizzaMaker();
   const defaultValues = {
     ...Object.fromEntries(
-      state.ingredients?.map((ingredient) => [ingredient, true]) || []
+      state.ingredients?.map((ingredient) => [ingredient.name, true]) || []
     ),
   };
 
@@ -31,7 +32,9 @@ export const IngredientsSelector = () => {
     change({
       ingredients: Object.entries(data)
         .filter((entry) => !!entry[1])
-        .map(([key]) => key),
+        .map(([key]) =>
+          ingredients?.find((ig) => ig.name === key)
+        ) as Array<Ingredient>,
     });
     navigate(routes.home.size);
   };

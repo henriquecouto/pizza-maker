@@ -19,7 +19,7 @@ export const DoughSelector = () => {
   const navigate = useNavigate();
   const { doughs } = usePizzaDoughs();
   const { change, state } = usePizzaMaker();
-  const defaultValues = { ...DEFAULT_VALUES, dough: state.dough };
+  const defaultValues = { ...DEFAULT_VALUES, dough: state.dough?.name };
   const {
     register,
     handleSubmit,
@@ -30,7 +30,7 @@ export const DoughSelector = () => {
   });
 
   const onSubmit = (data: DoughSelectorModel) => {
-    change(data);
+    change({ dough: doughs?.find((dough) => dough.name === data.dough) });
     navigate(routes.home.ingredients);
   };
 
