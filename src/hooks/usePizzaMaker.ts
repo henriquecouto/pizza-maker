@@ -6,6 +6,7 @@ const PIZZA_MAKER_KEY = 'pizza-maker';
 
 const DEFAULT_VALUES = {
   dough: '',
+  ingredients: [],
 };
 
 type StateType = typeof DEFAULT_VALUES;
