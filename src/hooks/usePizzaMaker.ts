@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
+import { SizeName } from 'entities/Size';
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
@@ -7,6 +8,7 @@ const PIZZA_MAKER_KEY = 'pizza-maker';
 const DEFAULT_VALUES = {
   dough: '',
   ingredients: [],
+  size: 'M' as SizeName,
 };
 
 type StateType = typeof DEFAULT_VALUES;

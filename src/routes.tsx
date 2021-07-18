@@ -1,7 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import routes from 'constants/routes';
 import { Home } from 'pages';
-import { DoughSelector, IngredientsSelector } from 'components/ui';
+import {
+  DoughSelector,
+  IngredientsSelector,
+  SizeSelector,
+} from 'components/ui';
 
 const AppRoutes = () => (
   <BrowserRouter>
@@ -12,7 +16,7 @@ const AppRoutes = () => (
           path={routes.home.ingredients}
           element={<IngredientsSelector />}
         />
-        <Route path={routes.home.size} element={<h1>step 3</h1>} />
+        <Route path={routes.home.size} element={<SizeSelector />} />
       </Route>
     </Routes>
   </BrowserRouter>

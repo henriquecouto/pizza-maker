@@ -19,7 +19,7 @@ export const DoughSelector = () => {
   const navigate = useNavigate();
   const { doughs } = usePizzaDoughs();
   const { change, state } = usePizzaMaker();
-  const defaultValues = { ...DEFAULT_VALUES, ...state };
+  const defaultValues = { ...DEFAULT_VALUES, dough: state.dough };
   const {
     register,
     handleSubmit,
