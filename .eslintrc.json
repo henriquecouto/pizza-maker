@@ -37,6 +37,11 @@
     ],
     "arrow-body-style": ["error", "as-needed"],
     "react/prop-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "vars": "all", "args": "after-used" }
+    ]
   }
 }

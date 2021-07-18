@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Header, PizzaMaker, PizzaRecomendation } from 'components/ui';
+import { PizzaMaker, PizzaRecomendation } from 'components/ui';
 import { useScore } from 'stores/score';
 import { usePizzaRecomendation } from 'useCases';
 import * as S from './Home.styles';
@@ -10,7 +10,6 @@ export const Home = () => {
 
   return (
     <S.Container>
-      <Header />
       <PizzaRecomendation
         pizza={pizza}
         onChoose={(pizza) => add(pizza.score)}

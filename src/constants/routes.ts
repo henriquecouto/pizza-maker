@@ -1,3 +1,9 @@
 export default {
-  home: { root: '/', ingredients: '/ingredientes', size: '/tamanho' },
+  root: '/',
+  home: {
+    root: '/',
+    ingredients: '/ingredientes',
+    size: '/tamanho',
+  },
+  finish: '/concluir-pedido',
 };

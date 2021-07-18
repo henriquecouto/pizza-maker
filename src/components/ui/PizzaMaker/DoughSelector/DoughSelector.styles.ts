@@ -31,7 +31,7 @@ export const DoughContainer = styled.div`
 
 export const DoughPhoto = styled.img`
   width: 30%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
 `;
 

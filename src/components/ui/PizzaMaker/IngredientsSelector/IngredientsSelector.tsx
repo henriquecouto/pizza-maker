@@ -30,7 +30,7 @@ export const IngredientsSelector = () => {
   const onSubmit = (data: IngredientsSelectorModel) => {
     change({
       ingredients: Object.entries(data)
-        .filter(([_, value]) => !!value)
+        .filter((entry) => !!entry[1])
         .map(([key]) => key),
     });
     navigate(routes.home.size);

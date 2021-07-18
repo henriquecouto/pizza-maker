@@ -1,7 +1,9 @@
 import { Typography, Button, Icon } from 'components/kit';
+import routes from 'constants/routes';
 import { Pizza } from 'entities/Pizza';
 import { FC } from 'react';
 import { useTheme } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { numberToMoney } from 'utils';
 import * as S from './PizzaRecomendation.styles';
 
@@ -16,6 +18,12 @@ export const PizzaRecomendation: FC<PizzaRecomendationProps> = ({
   pizza,
 }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
+  const handleChoose = () => {
+    onChoose(pizza);
+    navigate(routes.finish);
+  };
 
   return (
     <S.Container>
@@ -59,7 +67,7 @@ export const PizzaRecomendation: FC<PizzaRecomendationProps> = ({
             <Typography.Body color='info' weight='bold' size={32}>
               {numberToMoney(pizza.price)}
             </Typography.Body>
-            <Button icon='IcCheck' onClick={() => onChoose(pizza)}>
+            <Button icon='IcCheck' onClick={handleChoose}>
               quero!
             </Button>
           </S.Action>

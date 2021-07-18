@@ -3,10 +3,12 @@ import { useTheme } from 'styled-components';
 import { usePizzaSizes } from 'useCases/pizza-sizes';
 import { numberToMoney } from 'utils';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { SizeName } from 'entities/Size';
 import * as S from './SizeSelector.styles';
 import { DEFAULT_VALUES } from './SizeSelector.validations';
 import { usePizzaMaker } from 'hooks';
+import routes from 'constants/routes';
 
 enum PIZZA_SIZES {
   P = 100,
@@ -20,15 +22,21 @@ type SizeSelectorModel = {
 
 export const SizeSelector = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const { sizes } = usePizzaSizes();
   const { change, state } = usePizzaMaker();
   const defaultValues = { ...DEFAULT_VALUES, size: state.size };
-  const { register, handleSubmit } = useForm<SizeSelectorModel>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SizeSelectorModel>({
     defaultValues,
   });
 
   const onSubmit = (data: SizeSelectorModel) => {
     change(data);
+    navigate(routes.finish);
   };
 
   return (
@@ -57,7 +65,7 @@ export const SizeSelector = () => {
           ))}
         </S.SizesContainer>
         <S.Footer>
-          <Typography.Body>{/*errors.dough?.message*/}</Typography.Body>
+          <Typography.Body>{errors.size?.message}</Typography.Body>
           <Button icon='IcCheck' type='submit'>
             concluir pedido
           </Button>
