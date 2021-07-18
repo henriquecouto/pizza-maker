@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+// eslint-disable-next-line no-restricted-imports
+import 'assets/fonts/YanoneKaffeesatz/stylesheet.css';
 
 export default createGlobalStyle`
    * {
@@ -7,5 +9,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
     outline: none;
     text-decoration: none;
+    font-family: 'Yanone Kaffeesatz';
   }
 `;
